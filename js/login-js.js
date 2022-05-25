@@ -81,7 +81,7 @@ $(document).on("mouseup", "#btn-forgotPassID", function() {
 
 
 function sendResetPass(username) {
-		var sendPath = "/resetPass";
+		var sendPath = "http://192.168.4.1/resetPass";
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", sendPath);
 		xhttp.responseType = 'text';
@@ -101,7 +101,7 @@ function sendResetPass(username) {
 }
 
 function sendLogin(username, password) {
-		var sendLoginPath = "/checkLogin";
+		var sendLoginPath = "http://192.168.4.1/checkLogin";
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", sendLoginPath);
 		xhttp.responseType = 'text';
@@ -125,7 +125,7 @@ function sendLogin(username, password) {
 }
 
 function getIndexPage() {
-		var sendPath = "/index.html";
+		var sendPath = "http://192.168.4.1/index.html";
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", sendPath);
 		xhttp.responseType = 'text';
