@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="js/javascript.js"></script>
+	<script src="js/indexpage.js"></script>
+	<script src="js/notification-popup.js"></script>
+
+</head>
+
+<body>
+
+	<section class="scrollable-section">
+		<div class="my-container">
+			<div class=navbar>
+			  <div class="ofeature-upper-navigation">
+				<div class="left-up-nav">
+				  <img class="app-logo" src="img/index-logo.svg">
+				</div>
+				  <div class="right-up-nav">
+					<a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+					<p>|</p>
+					<button class="nav-user-btn"> S </button>
+				  </div>
+				</div>
+
+			<div class="scrollmenu">
+				<a id="keyManagementId" class="active" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon-colour.svg"></a>
+				<a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+				<a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+			   <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+			   <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+			</div>
+			</div>
+
+		</div>
+		<section class="cards-management">
+			<a href="keylistpage.html ">
+				<div class="card">
+					<div class="card-image">
+						<img id="cardImage" src="img/activated-card-list.svg" alt="activated card list">
+					</div>
+					<div class="text-">
+						<p class="card-title">Active Key List</p>
+						<p class="card-body-text">Retrieve list of programmed access keys and
+							special function cards.</p>
+						<!--<a href="activatecard" class="text-button" onclick="startActivationMode()"> activate Cards </a> -->
+					</div>
+				</div>
+			</a> <a href="programkeys.html">
+				<div class="card">
+					<div class="card-image">
+						<img id="cardImage" src="img/activate-card.svg" alt="activated card list">
+					</div>
+					<div>
+						<p class="card-title">Program Keys</p>
+						<p class="card-body-text">Present single keys and special function
+							cards or a batch of keys to authorize them on this device.</p>
+						<!--<a href="activatecard" class="text-button" onclick="startActivationMode()"> activate Cards </a> -->
+					</div>
+				</div>
+			</a> <a href="erasekeys.html">
+				<div class="card">
+					<div class="card-image">
+						<img id="cardImage" src="img/erase-cards.svg" alt="activated card list">
+					</div>
+					<div >
+						<p class="card-title">Erase Keys</p>
+						<p class="card-body-text">Remove authorization for single keys even
+							when they are lost or stolen.</p>
+						<!--<a href="activatecard" class="text-button" onclick="startActivationMode()"> activate Cards </a> -->
+					</div>
+				</div>
+			</a>
+		</section>
+
+	<!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+	<!-- Device Name Prompt Message -->
+	<div id="deviceName-prompt">
+		<h1 class="devicePrompt-header">Device Name Management</h1>
+		<p>This device is set to a default name. It is recommended to rename each device to a unique name.</p>
+		<p id="devicePrompt-question">Would you like to change the device name?</p>
+		<div class="prompt-buttonGroup">
+			<button class="devicePrompt-yes">Yes</button>
+			<button class="devicePrompt-no">No</button>
+		</div>
+	</div>
+
+	</section>
+	<script src="js/main.js"></script>
+</body>
+</html>

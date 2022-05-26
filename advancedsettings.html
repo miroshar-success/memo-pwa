@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/advancedsettings-js.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/ofeatures-js.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body >
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+        <div class="ofeature-upper-navigation">
+          <div class="left-up-nav">
+            <img class="app-logo" src="img/index-logo.svg">
+          </div>
+	        <div class="right-up-nav">
+	          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+	          <p>|</p>
+	          <button class="nav-user-btn"> S </button>
+	        </div>
+      	</div>
+
+        <div class="scrollmenu">
+          <a id="keyManagementId" class="tablinks" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon.svg"></a>
+          <a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+          <a class="active" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon-colour.svg"></a>
+          <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+          <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="notif">
+      <div class="notif-text">
+        <p class="notif-title">Changes Saved Successfully!</p>
+        <div class="alignTypeSn">
+          <p id="notifText" class="body-16-regular"> 5 </p>
+        </div>
+      </div>
+      <div class="notif-image">
+        <img src="img/check.svg">
+      </div>
+    </div>
+
+   <div class="ofeatures-cards-management ad-spacing ad-content">
+
+    <div class="Advsettings-title">
+      <p class="ofeature-title" >Advanced Settings</p>
+    </div>
+
+
+
+    <div class="adv-settings-Title top-spacing">
+      <p class="opening-Features-Title top-spacing">Output Settings</p>
+    </div>
+
+      <div class="card-ad-settings">
+
+        <div class="ad-row">
+          <div class="ad-row-1 ">
+            <p class="body-16-regular">Output Inversion</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-output-inversion btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <!-- <input type="checkbox" id="myCheckbox-1" onchange="saveSetting('CF_OUT_FLF_BASE', String(Number(document.getElementById('myCheckbox').checked)))" checked> -->
+              <input name="CF_OUT_INV_BASE"  type="checkbox" id="myCheckbox-1" onchange="saveSetting('CF_OUT_INV_BASE', String(Number(document.getElementById('myCheckbox-1').checked)))" checked>
+              <label for="myCheckbox-1"></label>
+            </div>
+          </div>
+        </div>
+          <!--<div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output Duration Cut</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-duration btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <select name="outputDuration" id="outputDuration" class="selection-css">
+              <option value="Off">Off</option>
+              <option value="Local" selected>Local</option>
+              <option value="Network" >Network</option>
+            </select>
+          </div>
+        </div> -->
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output Duration</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-interval btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="input-container">
+              <p class="label-sec">Sec.</p>
+              <input id="inputDurationOutputDuration" class="ad-input-with-borders" name="CF_OUT_DUR_BASE" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('inputDurationOutputDuration')" type="number" maxlength="3">
+              <!-- <input id="inputDuration" class="ad-input-with-borders" name="inpt-timer" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" type="number" maxlength="3"
+                min="1" max="250" value="5" onfocusout="saveInputValue('inputfieldDuration')"> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output Delay</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-interval btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="input-container">
+              <p class="label-sec">Sec.</p>
+              <input id="inputDurationOutputDelay" class="ad-input-with-borders" name="CF_OUT_DEL_BASE" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('inputDurationOutputDelay')" type="number" maxlength="3">
+              <!-- <input id="inputDuration" class="ad-input-with-borders" name="inpt-timer" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" type="number" maxlength="3"
+                min="1" max="250" value="5" onfocusout="saveInputValue('inputfieldDuration')"> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output Clearance</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-clearance btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="input-container">
+              <p class="label-sec">Ms.</p>
+              <input id="inputDurationOutputClearance" class="ad-input-with-borders" name="CF_OUT_CLEAR" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('inputDurationOutputClearance')" type="number" maxlength="4">
+                <!--<input id="inputDuration" class="ad-input-with-borders" name="inpt-timer" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" type="number" maxlength="3"
+                min="1" max="250" value="5" onfocusout="saveInputValue('inputfieldDuration')"> -->
+
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output drawer mode</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-drawer btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+            	<input name="CF_MSC2_DRAWERM"  type="checkbox" id="myCheckbox-2" onchange="saveSetting('CF_MSC2_DRAWERM', String(Number(document.getElementById('myCheckbox-2').checked)))" checked>
+              <!-- <input type="checkbox" id="myCheckbox-2" onchange="saveSetting('CF_OUT_FLF_BASE', String(Number(document.getElementById('myCheckbox').checked)))" checked> -->
+              <label for="myCheckbox-2"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Output Active Sound</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-outputs-sound btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <input name="CF_MSC4_OUTSND"  type="checkbox" id="myCheckbox-3" onchange="saveSetting('CF_MSC4_OUTSND', String(Number(document.getElementById('myCheckbox-3').checked)))" checked>
+              <label for="myCheckbox-3"></label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="adv-settings-Title top-spacing">
+        <p class="opening-Features-Title top-spacing">Input/Alarm Settings</p>
+      </div>
+
+      <div class="card-ad-settings">
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Door Input</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-door-inputs btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <input name="CF_INP_ON_BM"  type="checkbox" id="myCheckbox-4" onchange="saveSetting('CF_INP_ON_BM', String(Number(document.getElementById('myCheckbox-4').checked)))" checked>
+              <label for="myCheckbox-4"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Door Input Inversion</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-door-inversion btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+             <input name="CF_INP_INV_BM"  type="checkbox" id="myCheckbox-5" onchange="saveSetting('CF_INP_INV_BM', String(Number(document.getElementById('myCheckbox-5').checked)))" checked>
+              <label for="myCheckbox-5"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Intrusion alarm delay</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-intrusion-alarm btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="input-container">
+              <p class="label-sec">sec</p>
+              <input id="inputDurationIntAlarmDelay" class="ad-input-with-borders" name="CF_AL_ITDEL" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('inputDurationIntAlarmDelay')" type="number" maxlength="3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adv-settings-Title top-spacing">
+        <p class="opening-Features-Title top-spacing">General Settings</p>
+      </div>
+
+      <div class="card-ad-settings">
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Unit Address</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-unit-address btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <input id="inputUnitAddress" class="ad-input-with-borders" name="CF_UNIT_ADR" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('inputUnitAddress')" type="number" maxlength="3">
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular">Sound On</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-sound-on btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <input name="CF_MISC_BUZZ"  type="checkbox" id="myCheckbox-6" onchange="saveSetting('CF_MISC_BUZZ', String(Number(document.getElementById('myCheckbox-6').checked)))" checked>
+              <label for="myCheckbox-6"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular" style="max-width:182px;">Emergency open function</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-emergency-function btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <input name="CF_MSC4_EMER_OPEN"  type="checkbox" id="myCheckbox-7" onchange="saveSetting('CF_MSC4_EMER_OPEN', String(Number(document.getElementById('myCheckbox-7').checked)))" checked>
+              <label for="myCheckbox-7"></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-row">
+          <div class="ad-row-1">
+            <p class="body-16-regular" style="max-width:170px;">Invert emergency open function</p>
+            <img src="img/question-icon.svg" class="ad-questionmark-invert-emergency btn-question-mark">
+          </div>
+          <div class="ad-row-2">
+            <div class="switch-toggle">
+              <input name="CF_MSC4_INV_EMER_OPEN"  type="checkbox" id="myCheckbox-8" onchange="saveSetting('CF_MSC4_INV_EMER_OPEN', String(Number(document.getElementById('myCheckbox-8').checked)))" checked>
+              <label for="myCheckbox-8"></label>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!--popup window - more information -->
+    <div class="ad-overlay">
+      <div class="ad-popup">
+        <div class="close-popup-icon">
+          <img src="img/close-icon.svg">
+        </div>
+        <div class="popup-delte-content">
+          <p id="adHeadlineID" style="text-align: center;" class="body-16-bold">Headline</p>
+          <p id="adParagraphID" style="text-align: justify;">content</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+  </section>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
+<script>
+fetchSetting('myCheckbox-1', 'CF_OUT_INV_BASE');
+fetchSetting('inputDurationOutputDuration' , 'CF_OUT_DUR_BASE');
+fetchSetting('inputDurationOutputDelay' , 'CF_OUT_DEL_BASE');
+fetchSetting('inputDurationOutputClearance' , 'CF_OUT_CLEAR');
+fetchSetting('myCheckbox-2', 'CF_MSC2_DRAWERM');
+fetchSetting('myCheckbox-3', 'CF_MSC4_OUTSND');
+fetchSetting('myCheckbox-4', 'CF_INP_ON_BM');
+fetchSetting('myCheckbox-5', 'CF_INP_INV_BM');
+fetchSetting('inputDurationIntAlarmDelay' , 'CF_AL_ITDEL');
+fetchSetting('inputUnitAddress' , 'CF_UNIT_ADR');
+fetchSetting('myCheckbox-6', 'CF_MISC_BUZZ');
+fetchSetting('myCheckbox-7', 'CF_MSC4_EMER_OPEN');
+fetchSetting('myCheckbox-8', 'CF_MSC4_INV_EMER_OPEN');
+</script>

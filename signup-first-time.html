@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/signup-js.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+  <section class="login-section">
+    <div class="center-content-horizontal">
+      <img id="1stepperID" src="stepper-1.svg">
+      <img id="2stepperID" src="stepper-2.svg">
+      <img id="3stepperID" src="stepper-3.svg">
+      <img id="4stepperID" src="stepper-4.svg">
+    </div>
+
+    <div class="page-header">
+      <div class="page-header-top">
+        <p class="body-28-medium-headline">Sign Up</p>
+      </div>
+      <div class="page-header-description">
+        <p class="body-16-regular-description text-align-center">The name should include the room area and furniture in which the device is located.</p>
+      </div>
+    </div>
+
+
+    <div class="page-body">
+
+      <div class="inputfield-device-name">
+        <div class="stretch-element">
+          <input id="inputDevicenameID" class="input-roundEdge-borders" placeholder="Device Name" autocomplete="off">
+        </div>
+        <div class="memo-name-signup">
+          <div class="memo-name">
+            <label class="body-16-regular-description">MEMO</label>
+          </div>
+        </div>
+        <p id="ht-devicenameID" class="helperText hide">This input field is required!</p>
+      </div>
+
+      <form class="inputfields-name">
+        <div class="spacing stretch-element">
+          <input id="firstnameID" class="input-roundEdge-borders-padding" placeholder="First Name" type="text" autocomplete="off" required>
+          <p id="ht-firstnameID" class="helperText hide">This input field is required!</p>
+        </div>
+        <div class="spacing stretch-element">
+          <input id="lastnameID" class="input-roundEdge-borders-padding" placeholder="Last Name" type="text" autocomplete="off" required>
+          <p id="ht-lastnameID" class="helperText hide">This input field is required!</p>
+        </div>
+      </form>
+      <div class="inputfields-usernam-password">
+        <div class="stretch-element">
+          <div class="spacing stretch-element">
+            <input id="usernameID" class="input-roundEdge-borders-padding" placeholder="Last Name" type="text" autocomplete="off" required>
+            <p id="ht-username" class="helperText hide">This input field is required!</p>
+          </div>
+          <div class="spacing stretch-element">
+            <input id="EmailID" class="input-roundEdge-borders-padding" placeholder="Last Name" type="text" autocomplete="off" required>
+            <p id="ht-Email" class="helperText hide">This input field is required!</p>
+          </div>
+          <div class="inputfield-password spacing">
+            <div class="stretch-element">
+              <input id="passwordID" type="password" class="input-roundEdge-borders-padding" placeholder="Password" autocomplete="off">
+              <p id="ht-password" class="helperText hide">This input field is required!</p>
+            </div>
+            <div class="hide-password">
+              <label id="hideBtnID" class="labelClass text-button">Show</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inputfields-address">
+        <div class="stretch-element spacing">
+          <input id="streetID"  class="input-roundEdge-borders-padding" placeholder="Street" autocomplete="off">
+          <p id="ht-streetID" class="helperText hide">This input field is required!</p>
+        </div>
+        <div class="stretch-element spacing">
+          <input id="cityID"  class="input-roundEdge-borders-padding" placeholder="City" autocomplete="off">
+          <p id="ht-cityID" class="helperText hide">This input field is required!</p>
+        </div>
+        <div class="stretch-element spacing">
+          <input id="countryID" class="input-roundEdge-borders-padding" placeholder="Country" autocomplete="off">
+          <p id="ht-countryID" class="helperText hide">This input field is required!</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="page-footer-signup">
+      <button id="backBtnID" class="btn-back">Back</button>
+      <button id="nextBtnID" class="btn-next">Next</button>
+    </div>
+
+    <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+
+  </section>
+
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

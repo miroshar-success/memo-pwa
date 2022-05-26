@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/javascript.js"></script>
+  <script src="js/ofeatures-js.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/erasekeys-js.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8"/>
+</head>
+
+<body>
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+      <div class="upper-navigation">
+        <div class="left-up-nav">
+          <!--	<img src="img/logo.svg"> -->
+          <a id="btnDoneId" class="text-button-white-edit" type="button">
+            <img class="left-arrow" src="img/arrow-left-white.svg">
+            <p class="body-16-regular" style="padding-left:6px;">Home</p>
+          </a>
+        </div>
+        <div class="right-up-nav" id="erasekeys-right-up-nav">
+          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+          <p>|</p>
+          <button class="nav-user-btn"> S </button>
+        </div>
+      </div>
+
+			<div class="scrollmenu">
+        <a id="keyManagementId" class="active" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon-colour.svg"></a>
+        <a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+        <a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+        <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+        <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+      </div>
+      </div>
+    </div>
+
+    <div id="notif">
+      <div class="notif-text">
+        <p class="notif-title">Changes Saved Successfully!</p>
+        <div class="alignTypeSn">
+          <p id="notifText" class="body-16-regular"> 5 </p>
+        </div>
+      </div>
+      <div class="notif-image">
+        <img src="img/check.svg">
+      </div>
+    </div>
+
+
+  <!--  <div id="loader" class="loader-css"></div> -->
+
+    <div class="erase-keys-container">
+
+      <div class="ofeature-header">
+        <p class="ofeature-title">Key List</p>
+      </div>
+
+      <div class="tbl-header-container">
+
+        <div class="tbl-left-div">
+          <label class="labelClass">
+            <input id="allchk" class="checkbox-header" type="checkbox">
+            <span class="checkmark"></span>
+            <p style="margin-left:35px; cursor: pointer;">Select All</p>
+          </label>
+
+        </div>
+
+        <div class="tbl-right-div">
+          <div class="left-btn ">
+            <a id="delteBtnId" class="delete-btn disabled-button2">
+              <div class="delete-icon">
+                <img id="delete-icon" src="img/delete-icon.svg">
+              </div>
+              <div class="delete-text">
+                <p class="body-16-regular">Delete</p>
+              </div>
+            </a>
+          </div>
+          <div class="right-btn">
+            <img class="dot-menu" src="img/dropdown-icon.svg">
+          </div>
+        </div>
+
+      </div>
+
+      <!--key list table        -->
+      <div class="erase-table-container">
+        <table id="key-list-table" cellspacing="1" cellpadding="1">
+        </table>
+      </div>
+    </div>
+
+    <!--deleting keys popup window       -->
+    <div class="overlay">
+      <div class="popup">
+        <div class="close-popup-icon">
+          <img src="img/close-icon.svg">
+        </div>
+        <div class="popup-delte-content">
+          <img src="img/attention-icon.svg">
+          <p style="text-align: center;">Are you sure you want to delete this Keys?</p>
+        </div>
+        <div class="btn-group">
+          <button class="btn-delete">Yes, Delete</button>
+          <button class="btn-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- loading gif-->
+    <div class="screenLoader">
+      <!-- rotating circle loader -->
+      <div class="loaderR">
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+
+
+  </section>
+	<script src="js/main.js"></script>
+</body>
+</html>

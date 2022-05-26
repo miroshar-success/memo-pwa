@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/login-js.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+<meta charset="utf-8"/>
+</head>
+
+<body>
+
+  <section class="login-section">
+
+    <div class="page-header">
+      <div class="page-header-top">
+        <p class="body-28-medium-headline">Login Now</p>
+      </div>
+      <div class="page-header-description">
+        <p class="body-16-regular-description text-align-center">Please enter the details below to continue.</p>
+      </div>
+    </div>
+
+
+    <div class="page-body">
+      <div class="spacing stretch-element">
+        <input id="usernameID" class="input-roundEdge-borders-padding" placeholder="Username/ Email Address">
+        <p id="ht-usernameID" class="helperText hide">This input field is required!</p>
+      </div>
+      <div class="inputfield-password">
+        <div class="stretch-element">
+          <input id="passwordID" type="password" class="input-roundEdge-borders-padding" placeholder="Password" autocomplete="on">
+          <p id="ht-password" class="helperText hide">This input field is required!</p>
+        </div>
+        <div class="hide-password">
+          <label id="hideBtnID" class="labelClass text-button">Show</label>
+        </div>
+      </div>
+      <div>
+      	<p id="ht-incorrectLoginID" class="helperText hide">Incorrect username or password!</p>
+      </div>
+      <div>
+      	<p id="ht-incorrectUsernameID" class="helperText hide">Username or email does not exist</p>
+      </div>
+
+
+      <a>
+        <p id="btn-forgotPassID" class="text-button body-16-bold">Forgot Password?</p>
+      </a>
+
+      <div class="stretch-element login-btn">
+        <button type="submit" class="btn-login">Login</button>
+      </div>
+    </div>
+
+
+    <div class="page-footer">
+      <div class="body-16-regular-register">
+        <p class="body-16-regular">Don’t have an Account?</p>
+      </div>
+      <div class="text-button-register body-16-bold">
+        <a class="text-button body-16-bold" href="register.html">Register</a>
+      </div>
+    </div>
+
+      <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+  </section>
+
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

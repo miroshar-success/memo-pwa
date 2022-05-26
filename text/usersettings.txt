@@ -1,0 +1,3 @@
+{
+	"json_type":"user_settings"
+}

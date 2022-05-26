@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--   <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+  <script src="js/jquery-3.6.0.min_r.js"></script>
+ <!--  <script src="js/javascript.js"></script> -->
+  <script src="js/updatedev-js_r.js"></script>
+  <link rel="stylesheet" href="main_r.css">
+</head>
+
+<body>
+  <section class="my-section">
+    <div class="my-container">
+
+      <div class="upper-navigation">
+        <div class="left-up-nav">
+         	<img src="img/index-logo.svg">
+         	<!--
+          <a id="btnDoneId" class="text-button-white-edit" type="button">
+            <img src="img/arrow-left-white.svg">
+            <p class="body-16-regular" style="padding-left:6px;">Home</p>
+          </a>
+          -->
+        </div>
+        <div class="right-up-nav">
+          <a class="nav-dev-name tablinks" href="deviceinfo.html">Device Name</a>
+          <p>|</p>
+          <button class="nav-user-btn"> S </button>
+        </div>
+      </div>
+
+      <div class="scrollmenu">
+        <a id="keyManagementId" href="index.html" class="tablinks">Key Management</a>
+        <a id="openingFeaturesId" href="openingfeat.html" type="button" class="tablinks" onclick="changePage('openingFeaturesId')">Opening Features</a>
+        <a class="tablinks" href="advancedsettings.html">Advanced Settings</a>
+        <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail</a>
+        <a id="uploadFirmwareId" href="updatedev.html" class="active">Update device</a>
+      </div>
+
+      <div id="notif">
+        <div class="notif-text">
+          <p class="notif-title">Sound and LED on device activated</p>
+          <div class="alignTypeSn">
+            <p id="notifText" class="body-16-regular">Duration: 5 seconds</p>
+          </div>
+
+        </div>
+        <div class="notif-image">
+          <img src="img/check.svg">
+        </div>
+      </div>
+
+      <div class="ofeature-container">
+        <div class="switch-holder-header">
+          <div class="switch-label">
+            <span id="settingName" class="body-16-bold">Steps to Update Device</span>
+          </div>
+        </div>
+
+        <ul class="list-spacing">
+          <li>1. Choose File</li>
+          <li>2. Press button “Upload File”</li>
+          <!--  <li>3. Restart Controller</li>-->
+        </ul>
+
+        <div class="device-info-content">
+          <div class="upload-file-container">
+          <input id="newfile" type="file" onchange="setpath()" name="filename" class="upload-file" multiple="multiple">
+          <p id="IdChooseFile" class="helper-text-upload-file">1. Click in this area to choose file.</p>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="device-info-bottom stretch-element ">
+        <button id="uploadBtnID" class="btn-login" style="margin-bottom:10px;">2. Upload File</button>
+        <button id="identifyBtnID" class="btn-restart-controller">Restart Controller</button>
+      </div>
+
+
+  </section>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

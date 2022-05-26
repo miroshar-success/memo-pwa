@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/javascript.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/ofeatures-js.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+        <div class="ofeature-upper-navigation">
+	        <div class="left-up-nav">
+	          <!--	<img src="img/logo.svg"> -->
+	          <a id="btnDoneId" class="text-button-white-edit" type="button">
+	            <img class="left-arrow" src="img/arrow-left-white.svg">
+	            <p class="body-16-regular" style="padding-left:6px;">Home</p>
+	          </a>
+	        </div>
+	        <div class="right-up-nav">
+	          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+	          <p>|</p>
+	          <button class="nav-user-btn"> S </button>
+	        </div>
+        </div>
+
+        <div class="scrollmenu">
+          <a id="keyManagementId" class="tablinks" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon.svg"></a>
+          <a id="openingFeaturesId" href="openingfeat.html" class="active">Opening Features <img class="option-icon" src="img/openfeat-icon-colour.svg"></a>
+          <a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+          <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+          <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+        </div>
+      </div>
+    </div>
+
+      <div id="notif">
+        <div class="notif-text">
+          <p class="notif-title">Changes Saved Successfully!</p>
+          <div class="alignTypeSn">
+            <p id="notifText" class="body-16-regular"> 5 </p>
+          </div>
+        </div>
+        <div class="notif-image">
+          <img src="img/check.svg">
+        </div>
+      </div>
+
+
+      <div class="ofeature-container">
+
+        <div class="switch-holder-header">
+          <div id="settingId" name="validationMode" class="switch-label">
+            <span class="body-16-bold">Validation Mode</span>
+          </div>
+          <div class="switch-toggle">
+            <!-- Setting for any door open warning alarm ON/OFF -->
+            <input name="CF_MSC3_ALIT" type="checkbox" id="myCheckbox" onchange="saveSetting('CF_MSC3_ALIT', String(Number(document.getElementById('myCheckbox').checked)))" checked>
+            <label for="myCheckbox"></label>
+          </div>
+        </div>
+
+        <div class="ofeature-content">
+          <div>
+            <img src="img/validation-mode.svg" class="ofeature-image hide">
+          </div>
+          <textarea
+            class="ofeatures-text">Before starting a work day, the ACCESS key must be validated in the shop at VALIDATION UNIT. Keys remain active for typically one work-shift, then keys become inactive and require validation for next shift.</textarea>
+        </div>
+
+
+        <div class="ofeature-position">
+          <div class="ofeature-bottom">
+            <div class="group-input-fields">
+
+              <div class="input-container">
+                <input id="validationDays" class="input-with-borders" name="CF_TIMED_ACCESS" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('validationHours')" type="number" maxlength="2" min="0" max="10" value="0">
+                <p class="label-sec">days</p>
+              </div>
+              <div class="input-container">
+                <input id="validationHours" class="input-with-borders" name="CF_TIMED_ACCESS" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" onchange="validateSettingValue('validationHours')" type="number" maxlength="3">
+                <p class="label-sec">hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+  </section>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
+<script>
+  fetchSetting('validationHours', 'CF_TIMED_ACCESS');
+</script>

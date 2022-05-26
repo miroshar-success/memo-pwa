@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/javascript.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body style="font-family:Verdana;">
+
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+        <div class="ofeature-upper-navigation">
+          <div class="left-up-nav">
+            <img class="app-logo" src="img/index-logo.svg">
+          </div>
+	        <div class="right-up-nav">
+	          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+	          <p>|</p>
+	          <button class="nav-user-btn"> S </button>
+	        </div>
+      	</div>
+
+        <div class="scrollmenu">
+          <a id="keyManagementId" class="active" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon-colour.svg"></a>
+          <a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+          <a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+          <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+          <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="my-navbarsection card-section" style="margin-top:30px;">
+    <div class="my-container">
+      <div class="card" id="successful-Card">
+        <h4> Successful Programmed Cards  <h4>
+      </div>
+  </section>
+
+  <section class="my-navbarsection card-section" style="margin-top:30px;">
+    <div class="my-container">
+      <p> ............Change this text..........<p>
+        <img src="img/successful-programmed.svg" class="successful-img" alt="Trulli" width="110px" height="144px">
+
+
+         <div class="card bottom-navbar"  id="successful-Card-Bottom">
+           <a href="" class="text-button" style="margin-left:auto;">Done</a>
+
+         </div>
+
+         <!-- Notification Pop-up -->
+        <div id="notification-popup">
+          <h1 class="notif-header">Connection Lost</h1>
+          <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+          <p>You have been disconnected from the device.</p>
+          <div class="wifi-icon-container">
+            <img src="img/disconnect-icon.svg" class="wifi-icon">
+          </div>
+        </div>
+
+
+        </section>
+
+
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

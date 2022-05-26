@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/keylist-js.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+        <div class="ofeature-upper-navigation">
+	        <div class="left-up-nav">
+	          <!--	<img src="img/logo.svg"> -->
+	          <a id="btnDoneId" class="text-button-white-edit" type="button">
+	            <img class="left-arrow" src="img/arrow-left-white.svg">
+	            <p class="body-16-regular" style="padding-left:6px;">Home</p>
+	          </a>
+	        </div>
+	        <div class="right-up-nav">
+	          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+	          <p>|</p>
+	          <button class="nav-user-btn"> S </button>
+	        </div>
+        </div>
+
+        <div class="scrollmenu">
+          <a id="keyManagementId" class="active" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon-colour.svg"></a>
+          <a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+          <a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+          <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+          <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-owner-container">
+      <div class="keylist-header">
+        <div class="left-header">
+          <p class="keylist-title">Key List </p>
+        </div>
+        <div class="right-header" id="keylist-right-header">
+          <div class="dropdown-menu">
+            <button class="select-btn" id="btn-export">Export</button>
+            <button class="select-btn" id="btn-import">Import</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="add-owner-container">
+      <div class="ofeature-header">
+        <p class="ofeature-title">Key List</p>
+    </div> -->
+
+<!--       <div class="tbl-header-container">
+
+        <div class="tbl-left-div">
+          <label class="labelClass">
+            <input id="allchk" class="checkbox-header" type="checkbox" onclick="selects()">
+            <span class="checkmark"></span>
+            <p style="margin-left:35px;">Select All</p>
+          </label>
+        </div>
+
+        <div class="tbl-right-div">
+          <img class="dot-menu" src="img/dropdown-icon.svg">
+        </div>
+      </div> -->
+
+      <!--List elements with owner   -->
+      <div id="accordionListId" class="accordion">
+        <div id="accordion-element" class="accordion-element" title="template">
+          <div class="accordion-header-container">
+            <div class="acc-checkbox">
+              <label class="labelClass"> <input name="chk" type="checkbox"><span class="checkmark"></span></label>
+            </div>
+            <div id="accordionOwnerHeadlineId" class="accordion-headline" name="">
+              <p id="firstNameID" class="body-16-regular "> First Name </p>
+              <p id="lastNameID" class="body-16-regular "> Last Name </p>
+            </div>
+            <div class="acc-arrow-icon">
+              <img id="accordionArrowID" src="arrow-down-white.svg">
+            </div>
+          </div>
+
+          <div id="accordionBodyId" class="accordion-body" >
+            <div class="key-owner-details">
+              <div class="align-text ">
+                <p class=" first-text body-16-regular-description">Gender:</p>
+                <p id="genderID" class="body-16-regular">Male</p>
+              </div>
+              <div class="align-text ">
+                <p class="first-text body-16-regular-description">Brand:</p>
+                <p id="brandID" class="body-16-regular">Rolex </p>
+              </div>
+              <div class="align-text ">
+                <p class="first-text body-16-regular-description">Department:</p>
+                <p id="departmentID" class="body-16-regular">Sale </p>
+              </div>
+              <div class="align-text ">
+                <p class="first-text body-16-regular-description">Personnel no.:</p>
+                <p id="personnelNoID" class="body-16-regular">121546515647 </p>
+              </div>
+            </div>
+            <div class="acc-btn-alignment">
+              <button class="text-button-edit edit-user-details-btn">Edit User</button>
+            </div>
+            <div id="keyListDetailsID" class="key-details-list" name="" >
+              <div id="keyListElemDetailsID" class="key-details-list-element">
+                <div class="align-text ">
+                  <p class="first-text body-16-regular-description">Type:</p>
+                  <p id="typeID" class="body-16-regular" name="type"> none </p>
+                </div>
+                <div class="align-text ">
+                  <p class="first-text body-16-regular-description">SN:</p>
+                  <p id="snID" class="body-16-regular" name="sn">none </p>
+                </div>
+              </div>
+            </div>
+            <div class="acc-btn-alignment">
+              <button class="text-button-edit edit-keys-btn">Edit Keys</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- List elements without owner  -->
+
+      <div id="accordion-element-no-owner" class="accordion-element" title="template">
+        <div class="accordion-header-container-2">
+          <div class="acc-checkbox">
+            <label class="labelClass"> <input name="chk" type="checkbox"><span class="checkmark"></span></label>
+          </div>
+
+          <div id="accordionNoOwnerHeadlineId" class="accordion-headline" name="noOwner">
+            <p id="typeID" class="body-16-regular "> Type </p>
+            <p id="snID" class="body-16-regular "> SN </p>
+          </div>
+          <div class="acc-add-icon">
+            <a class="add-btn"> <img src="img/add-key-owner.svg"> </a>
+          </div>
+        </div>
+      </div>
+
+<!--       <div id="accordion-element-special-card" class="accordion-element" title="template">
+        <div class="accordion-header-container-2">
+          <div id="accordionSpecialCardHeadlineId" class="accordion-headline" name="noOwner">
+            <p id="typeID" class="body-16-regular "> Type </p>
+            <p id="snID" class="body-16-regular "> SN </p>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+    <!--popup window - Edit User  -->
+    <div class="overlay"></div>
+    <div class="popup-edit-profil">
+      <div class="close-popup-icon">
+        <img src="img/close-icon.svg">
+      </div>
+      <div class="popwindow-header">
+        <p id="popupHeaderID" class="body-16-bold">Edit User</P>
+      </div>
+      <div class="popup-add-keyowner-content">
+        <input id="popFirstnameID" class="input-no-borders" placeholder="First Name" maxlength="20">
+        <!-- <p id="ht-firstname" class="helperText hide">This input field is required!</p> -->
+
+        <input id="popLastnameID" class="input-no-borders" placeholder="Last Name" maxlength="20">
+        <!-- <p id="ht-lastname" class="helperText hide">This input field is required!</p> -->
+
+        <div class="select-gender">
+          <div class="radio-btn-label radio-btn-male">
+            <label class="radio-btn-container " for="male">
+              <input class="input-radio-btn " type="radio" name="genderEditUser" id="popMaleID" value="male">
+              <span class="radio-btn-chck"></span>
+              </label>
+            <div>
+              <p>Male</p>
+            </div>
+          </div>
+          <div class="radio-btn-label radio-btn-female">
+            <label class="radio-btn-container " for="female">
+              <input class="input-radio-btn " type="radio" name="genderEditUser" id="popFemaleID" value="female">
+              <span class="radio-btn-chck"></span>
+              </label>
+            <div>
+              <p>Female</p>
+            </div>
+          </div>
+        </div>
+
+        <input id="popBrandID" class="input-no-borders" placeholder="Brand" maxlength="20">
+        <input id="popDepartmentID" class="input-no-borders" placeholder="Department" maxlength="20">
+
+        <input id="popPersonnelNoID" class="input-no-borders" placeholder="Personnel Number" maxlength="20">
+        <!-- <p id="ht-personnelnum" class="helperText hide">This input field is required!</p> -->
+
+      </div>
+      <div class="btn-group">
+        <button class="btn-cancel">Cancel</button>
+        <button class="btn-save">Save</button>
+      </div>
+    </div>
+
+    <!--popup window - Add User -->
+    <div class="popup-add-profil">
+      <div class="close-popup-icon">
+        <img src="img/close-icon.svg">
+      </div>
+      <div class="popwindow-header">
+        <p id="popupHeaderAddUserID" class="body-16-bold">Add User</P>
+      </div>
+      <div class="popup-add-keyowner-content">
+        <input id="popFirstnameAddUserID" class="input-no-borders" placeholder="First Name" maxlength="20">
+        <input id="popLastnameAddUserID" class="input-no-borders" placeholder="Last Name" maxlength="20">
+        <div class="select-gender">
+          <div class="radio-btn-label radio-btn-male-AddUser">
+            <label class="radio-btn-container " for="male">
+              <input class="input-radio-btn " type="radio" name="genderAddUser" id="popMaleAddUserID" value="male">
+              <span class="radio-btn-chck"></span>
+              </label>
+            <div>
+              <p>Male</p>
+            </div>
+          </div>
+          <div class="radio-btn-label radio-btn-female-AddUser">
+            <label class="radio-btn-container " for="female">
+              <input class="input-radio-btn " type="radio" name="genderAddUser" id="popFemaleAddUserID" value="female">
+              <span class="radio-btn-chck"></span>
+              </label>
+            <div>
+              <p>Female</p>
+            </div>
+          </div>
+        </div>
+
+        <input id="popBrandAddUserID" class="input-no-borders" placeholder="Brand" maxlength="20">
+        <input id="popDepartmentAddUserID" class="input-no-borders" placeholder="Department" maxlength="20">
+        <input id="popPersonnelNoAddUserID" class="input-no-borders" placeholder="Personnel Number" maxlength="20">
+
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-cancel-addUser">Cancel</button>
+        <button class="btn-save-addUser">Save</button>
+      </div>
+    </div>
+
+
+    <!-- Edit keys - Popup window -->
+    <div class="popup-edit-keys">
+      <div class="close-popup-icon">
+        <img src="img/close-icon.svg">
+      </div>
+      <div class="popwindow-header">
+        <p id="popupHeaderID" class="body-16-bold">Edit User Keys</P>
+      </div>
+
+      <div id="keyListContainerID" class="popup-add-keyowner-content">
+        <div id="keyListID" class="popup-key-list-container">
+          <div id="keyListElemID" title="id">
+            <div id="popupKeyElemID" title="id">
+              <p id="popupTypeID" class="body-16-regular" style="margin-bottom:4px;" >Supervisor Card </p>
+              <p id="popupSnID" class="body-16-regular-description">11251458451515</p>
+            </div>
+            <div id="popupActionID" class="pupup-table-actions" name="id">
+              <div class="popup-unassign-btn">
+                <a class="popup-text-btn" type="button" name="unassignBtn"> Unassign </a>
+                <a class="text-button-undo hide-btn">Undo</a>
+              </div>
+              <div class="popup-delete-btn">
+                <img src="img/delete-icon-red.svg" class="" name="deleteBtn">
+                <a class="text-button-undo hide-btn">Undo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="presentKeyplaceholderID" class="popup-add-key-placeholder hide">
+        <div>
+          <p class="body-16-regular">Present key to Reader!</p>
+        </div>
+        <div>
+          <p id="timerID" class="body-16-regular">5:00</p>
+        </div>
+      </div>
+
+      <a id="addKeyBtnID" class="Add-keys-btn">
+        <img src="img/plus-icon.svg">
+        <button id="addKeyBtnID" class="text-button-edit">Add Key</button>
+      </a>
+      <div class="btn-group-keys">
+        <button id="popupCancelBtnID" class="btn-cancel-keys">Cancel</button>
+        <button id="popupSaveBtnID" class="btn-save-keys">Save</button>
+      </div>
+    </div>
+
+        <!-- loading gif-->
+    <div class="screenLoader">
+      <!-- rotating circle loader -->
+      <div class="loaderR">
+        <div class="loader-inner">
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+            <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>

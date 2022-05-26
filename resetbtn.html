@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/reset-pass.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+<meta charset="utf-8"/>
+</head>
+
+<body>
+
+  <div class="upper-navigation">
+    <div class="left-up-nav-resetPass">
+      <!--	<img src="img/logo.svg"> -->
+      <a id="btnDoneId" class="text-button-white-edit" type="button">
+        <img class="left-arrow" src="img/arrow-left-white.svg">
+        <p class="body-16-regular" style="padding-left:6px;">Back</p>
+      </a>
+    </div>
+  </div>
+
+  <section class="login-section">
+
+    <div class="page-header">
+      <div class="page-header-top">
+        <p class="body-28-medium-headline">Reset Password</p>
+      </div>
+      <div class="page-header-description">
+        <p class="body-16-regular-description text-align-center p-size">Press the Reset Button on the Controller with something thin like a paper clip for 1 second</p>
+      </div>
+      <p class="body-12-regular warning-text ">Warning: If the Reset Button is for more than 10 seconds pressed, all keys and specific settings will be deleted.</p>
+    </div>
+
+    <div class="reset-page-body-resetCard">
+      <img src="img/inf-reset-btn.svg" class="reset-btn-img">
+
+    </div>
+    <p class="text-align-center">controller is waiting...</p>
+
+
+
+    <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+
+  </section>
+
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

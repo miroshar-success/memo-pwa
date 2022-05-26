@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta name="theme-color" content="white"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Memo Lock">
+<meta charset="utf-8" />
+<link rel="manifest" href="manifest.json">
+	<meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/javascript.js"></script>
+  <script src="js/notification-popup.js"></script>
+  <script src="js/programkeys-js.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <section class="scrollable-section">
+    <div class="my-container">
+      <div class=navbar>
+        <div class="ofeature-upper-navigation">
+	        <div class="left-up-nav">
+	          <!--	<img src="img/logo.svg"> -->
+	          <a id="btnDoneId" class="text-button-white-edit" type="button">
+	            <img class="left-arrow" src="img/arrow-left-white.svg">
+	            <p class="body-16-regular" style="padding-left:6px;">Home</p>
+	          </a>
+	        </div>
+	        <div class="right-up-nav">
+	          <a class="nav-dev-name" href="deviceinfo.html">Device Name</a>
+	          <p>|</p>
+	          <button class="nav-user-btn"> S </button>
+	        </div>
+        </div>
+
+
+        <div class="scrollmenu">
+          <a id="keyManagementId" class="active" href="index.html">Key Management <img class="option-icon" src="img/keymng-icon-colour.svg"></a>
+          <a id="openingFeaturesId" href="openingfeat.html" class="tablinks">Opening Features <img class="option-icon" src="img/openfeat-icon.svg"></a>
+          <a class="tablinks" href="advancedsettings.html">Advanced Settings <img class="option-icon" src="img/advset-icon.svg"></a>
+          <a id="audittrailID" href="audittrail.html" class="tablinks">Audit Trail <img class="option-icon" src="img/auditlist-icon.svg"></a>
+          <a id="uploadFirmwareId" href="updatedev.html" class="tablinks">Update device <img class="option-icon" src="img/update-icon.svg"></a>
+        </div>
+      </div>
+    </div>
+
+      <div id="notif">
+        <div class="notif-text">
+          <div class="alignTypeSn">
+            <p id="typeid" class="body-16-regular">Supervisor Card</p>
+            <p class="body-16-regular" style="margin-left:2px; margin-right:4px;"> - </p>
+            <p id="snid" class="body-16-regular">15543125848</p>
+          </div>
+          <p class="notif-title">Programmed Successful!</p>
+        </div>
+        <div class="notif-image">
+          <img src="img/check.svg">
+        </div>
+
+      </div>
+
+      <div class="stepper">
+        <div class="stepper-header">
+          <div>
+            <p id="stepperTitleId" class="stepper-title">Program Keys</p>
+          </div>
+
+          <div id="idStartProgrammingHeaderText">
+            <p class="stepper-text">Click on “Programming Button” and present a key or a special function card to the reader!</p>
+            <p class="stepper-text">Present another key within 5 seconds or wait until the process is finished!</p>
+          </div>
+          <div id="idTimeExpiredHeaderText">
+            <p class="stepper-text">press the "Add Cards" button, if you are not finished!</p>
+          </div>
+        </div>
+
+
+        <div class="stepper-content">
+          <img id="stepperImageID" src="img/present-card.svg" class="stepper-image">
+          <p id="stepperContentText" class="stepper-content-text">Present next Key or <br> Special Function Card!</p>
+          <span id="timeId" class="body-16-regular">00:00</span>
+        </div>
+
+        <button id="idBtnStartProgramming" class="btn-start-programming" onclick="changeProgrammKeysPage('startProgramming')">Start Programming</button>
+
+        <div id="stepperBottomID" class="stepper-bottom">
+          <div class="stepper-bottom-countdown">
+            <p id="presentedCardsID" class="body-16-regular">Presented Cards: 0</p>
+          </div>
+          <div class="stepper-bottom-navbar">
+            <a id="btnAddCardId" type="button" class="text-button" href="programkeys.html">
+              <img src="img/left-arrow.svg" style="padding-right:6px;">
+              <p class="body-16-regular">Add Cards</p>
+            </a>
+            <a id="btnDoneId" class="text-button" type="button" onclick="changeProgrammKeysPage('done')" href="index.html">
+              <p class="body-16-regular" style="padding-right:6px;">Done</p>
+              <img src="img/right-arrow.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      <!-- Notification Pop-up -->
+    <div id="notification-popup">
+      <h1 class="notif-header">Connection Lost</h1>
+      <div class="closebtn" onclick="hideNotification()"><h2 class="closebtn">X</h2></div>
+      <p>You have been disconnected from the device.</p>
+      <div class="wifi-icon-container">
+        <img src="img/disconnect-icon.svg" class="wifi-icon">
+      </div>
+    </div>
+
+  </section>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>
