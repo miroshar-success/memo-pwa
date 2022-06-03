@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function getDeviceInfo() {
-	var sendPath = "http://192.168.4.1/devInfo/";
+	var sendPath = "https://192.168.4.1/devInfo/";
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", sendPath);
 	xhttp.responseType = 'text';
